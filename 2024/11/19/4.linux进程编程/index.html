@@ -22,13 +22,13 @@
     <meta name="description" content="问1. 什么是程序，什么是进程，有什么区别？1234程序是静态的概念，gcc xxx.c –o pro 磁盘中生成pro文件，叫做程序进程是程序的一次运行活动，通俗点意思是程序跑起来了，系统中就多了一个进程  问2. 如何查看系统中有哪些进程？12341. ps -aux | grep 进程名2 .top 指令 类似于Windowns任务管理器  问3. 什么是进程标识符？123456789每个进">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux进程关键概念">
-<meta property="og:url" content="http://lunarcompiler.github.io/2024/11/19/linux%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B/index.html">
+<meta property="og:url" content="http://lunarcompiler.github.io/2024/11/19/4.linux%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Lunar&#39;s blog">
 <meta property="og:description" content="问1. 什么是程序，什么是进程，有什么区别？1234程序是静态的概念，gcc xxx.c –o pro 磁盘中生成pro文件，叫做程序进程是程序的一次运行活动，通俗点意思是程序跑起来了，系统中就多了一个进程  问2. 如何查看系统中有哪些进程？12341. ps -aux | grep 进程名2 .top 指令 类似于Windowns任务管理器  问3. 什么是进程标识符？123456789每个进">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://lunarcompiler.github.io/img/bgc3.png">
 <meta property="article:published_time" content="2024-11-19T09:04:55.000Z">
-<meta property="article:modified_time" content="2024-11-19T15:16:33.328Z">
+<meta property="article:modified_time" content="2024-11-19T16:17:24.895Z">
 <meta property="article:author" content="Lunar">
 <meta property="article:tag" content="原创">
 <meta name="twitter:card" content="summary_large_image">
@@ -284,7 +284,7 @@
 
 <h4 id="问3-什么是进程标识符？"><a href="#问3-什么是进程标识符？" class="headerlink" title="问3. 什么是进程标识符？"></a>问3. 什么是进程标识符？</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">每个进程都有一个非负整数表示的唯一ID,叫做pid，类似身份证<br><br>pid=<span class="hljs-number">0</span>:  称为交换进程（swapper）<br>作用—进程调度<br>pid=<span class="hljs-number">1</span>： init进程<br>作用—系统初始化<br><br>编程调用 getpid() 函数获取自身的进程标识符<br>getppid() 获取父进程的进程标识符<br></code></pre></td></tr></table></figure>
 
-<h4 id="问4-什么叫父进程，什么叫子进程？"><a href="#问4-什么叫父进程，什么叫子进程？" class="headerlink" title="问4. 什么叫父进程，什么叫子进程？"></a>问4. 什么叫父进程，什么叫子进程？</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs context">进程A创建了进程B那么A叫做父进程，B叫做子进程，父子进程是相对的概念，理解为人类中的父子关系<br></code></pre></td></tr></table></figure>
+<h4 id="问4-什么叫父进程，什么叫子进程？"><a href="#问4-什么叫父进程，什么叫子进程？" class="headerlink" title="问4. 什么叫父进程，什么叫子进程？"></a>问4. 什么叫父进程，什么叫子进程？</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs context">进程A创建了进程B<br>那么A叫做父进程，B叫做子进程，父子进程是相对的概念，理解为人类中的父子关系<br></code></pre></td></tr></table></figure>
 
 <h4 id="问5-C程序的存储空间是如何分配？"><a href="#问5-C程序的存储空间是如何分配？" class="headerlink" title="问5. C程序的存储空间是如何分配？"></a>问5. C程序的存储空间是如何分配？</h4><p><img src="/img/space.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>1.</strong> 正文段(<strong>.text</strong>)。这是由CPU执行的机器指令部分。通常，正文段是可共享的，所以即使是频繁执行的程序（如文本编辑器、C编译器和shell等）在存储器中也只需有一个副本，另外，正文段常常是只读的，心防止程序由于意外而修改其指令。</p>
@@ -344,7 +344,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>linux进程关键概念</div>
-      <div>http://lunarcompiler.github.io/2024/11/19/linux进程编程/</div>
+      <div>http://lunarcompiler.github.io/2024/11/19/4.linux进程编程/</div>
     </div>
     <div class="license-meta">
       
@@ -388,9 +388,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/11/19/%E5%AE%9E%E7%8E%B0linux_cp%E5%91%BD%E4%BB%A4/" title="实现linux cp命令">
+                      <a href="/2024/11/19/2.linux%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B/" title="linux文件编程">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">实现linux cp命令</span>
+                        <span class="hidden-mobile">linux文件编程</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -398,8 +398,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/11/19/linux%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" title="linux进程创建">
-                        <span class="hidden-mobile">linux进程创建</span>
+                      <a href="/2024/11/19/3.%E5%AE%9E%E7%8E%B0linux_cp%E5%91%BD%E4%BB%A4/" title="实现linux cp命令">
+                        <span class="hidden-mobile">实现linux cp命令</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
