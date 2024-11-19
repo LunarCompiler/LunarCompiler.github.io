@@ -19,24 +19,24 @@
   <meta name="author" content="Lunar">
   <meta name="keywords" content="">
   
-    <meta name="description" content="template文章！      便签   标签   标签   标签   标签  行内标签LabelLabel   按钮text">
+    <meta name="description" content="fork 函数fork创建一个子进程的一般目1.一个父进程希望复制自己,使父子进程同时执行不同的代码段，在这个网络服务进程中是常见的。父进程等待客户端的服务请求。当这种请求到达时，父进程调用fork,使子进程处理此请求。父进程则继续等待下一个服务请求到达。 2.一个进程要执行一个不同的程序，这对shell常见的情况。在这种情况下，子进程从fork返回后立即调用exec 在Linux系统中，通过调用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="template">
-<meta property="og:url" content="http://lunarcompiler.github.io/2024/11/19/template/index.html">
+<meta property="og:title" content="linux进程创建">
+<meta property="og:url" content="http://lunarcompiler.github.io/2024/11/19/5.linux%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/index.html">
 <meta property="og:site_name" content="Lunar&#39;s blog">
-<meta property="og:description" content="template文章！      便签   标签   标签   标签   标签  行内标签LabelLabel   按钮text">
+<meta property="og:description" content="fork 函数fork创建一个子进程的一般目1.一个父进程希望复制自己,使父子进程同时执行不同的代码段，在这个网络服务进程中是常见的。父进程等待客户端的服务请求。当这种请求到达时，父进程调用fork,使子进程处理此请求。父进程则继续等待下一个服务请求到达。 2.一个进程要执行一个不同的程序，这对shell常见的情况。在这种情况下，子进程从fork返回后立即调用exec 在Linux系统中，通过调用">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://lunarcompiler.github.io/img/bgc.png">
+<meta property="og:image" content="http://lunarcompiler.github.io/img/bgc4.png">
 <meta property="article:published_time" content="2024-11-19T09:04:55.000Z">
-<meta property="article:modified_time" content="2024-11-19T15:18:33.597Z">
+<meta property="article:modified_time" content="2024-11-19T16:16:34.977Z">
 <meta property="article:author" content="Lunar">
 <meta property="article:tag" content="原创">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://lunarcompiler.github.io/img/bgc.png">
+<meta name="twitter:image" content="http://lunarcompiler.github.io/img/bgc4.png">
   
   
   
-  <title>template - Lunar&#39;s blog</title>
+  <title>linux进程创建 - Lunar&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="template"></span>
+            <span id="subtitle" data-typed-text="linux进程创建"></span>
           
         </div>
 
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          20 字
+          581 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          1 分钟
+          5 分钟
         
       </span>
     
@@ -273,21 +273,26 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">template</h1>
+            <h1 id="seo-header">linux进程创建</h1>
             
             
               <div class="markdown-body">
                 
-                <p>template文章！  </p>
-<p><img src="/img/bgc.jpg" srcset="/img/loading.gif" lazyload alt="图片引用">  </p>
-<p>便签  </p>
-<p class="note note-primary">标签</p>  
-<p class="note note-success">标签</p>  
-<p class="note note-warning">标签</p>  
-<p class="note note-info">标签</p>
+                <h4 id="fork-函数"><a href="#fork-函数" class="headerlink" title="fork 函数"></a>fork 函数</h4><h6 id="fork创建一个子进程的一般目"><a href="#fork创建一个子进程的一般目" class="headerlink" title="fork创建一个子进程的一般目"></a>fork创建一个子进程的一般目</h6><p>1.一个父进程希望复制自己,使父子进程同时执行不同的代码段，在这个网络服务进程中是常见的。父进程等待客户端的服务请求。当这种请求到达时，父进程调用fork,使子进程处理此请求。父进程则继续等待下一个服务请求到达。</p>
+<p>2.一个进程要执行一个不同的程序，这对shell常见的情况。在这种情况下，子进程从fork返回后立即调用exec</p>
+<p>在Linux系统中，通过调用fork()来创建一个进程。调用 fork() 的进程称为父进程，新产生的进程称为子进程。在该调用结束时，在返回点这个相同的位子上，父进程恢复执行，子进程开始执行。<strong>fork()系统调用从内核返回两次：一次返回到父进程，另一次返回到新产生的子进程</strong>。</p>
+<p><img src="/img/fork1.png" srcset="/img/loading.gif" lazyload alt=" "></p>
+<h6 id="使用fork-创建一个进程"><a href="#使用fork-创建一个进程" class="headerlink" title="使用fork()创建一个进程"></a>使用fork()创建一个进程</h6><p>fork函数调用成功，返回两次<br>返回值为0，     代表当前进程是子进程<br>返回值非负数，代表当前进程为父进程</p>
+<p>调用失败，返回-1</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/*</span><br><span class="hljs-comment">    函数原型</span><br><span class="hljs-comment">    #include &lt;unistd.h&gt;</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    pid_t fork(void);</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;unistd.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;unistd.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>        <span class="hljs-type">pid_t</span> pid;<br>        <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br><br>        pid = fork();<br><br>        <span class="hljs-keyword">if</span>(pid &gt; <span class="hljs-number">0</span>)<br>        &#123;<br>                <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)<br>                &#123;<br>                        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;father pid:%d a:%d\n&quot;</span>,getppid(),a);<br>                        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;father say child pid is %d\n\n&quot;</span>,pid);<br>                        sleep(<span class="hljs-number">1</span>);<br>                &#125;<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>        &#123;<br>                <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)<br>                &#123;<br>                        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;child pid:%d a:%d\n\n&quot;</span>,getpid(),a++);<br>                        sleep(<span class="hljs-number">1</span>);<br>                &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>行内标签<br><span class="label label-primary">Label</span><br><span class="label label-success">Label</span>  </p>
-<p>按钮<br><a class="btn" href="url" title="title">text</a></p>
+<p><img src="/img/fork.png" srcset="/img/loading.gif" lazyload alt=" "></p>
+<p>a的值的变化说明父子进程有独立的地址空间，互不影响；当在相应的进程中改变全局变量静态变量，都互不影响。</p>
+<h6 id="vfork函数-也可以创建进程，与fork有什么区别"><a href="#vfork函数-也可以创建进程，与fork有什么区别" class="headerlink" title="vfork函数 也可以创建进程，与fork有什么区别"></a>vfork函数 也可以创建进程，与fork有什么区别</h6><p>关键区别一：<br>vfork 直接使用父进程存储空间，不拷贝。</p>
+<p>关键区别二：<br>vfork保证子进程先运行,当子进程调用exit退出后，父进程才执行。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;unistd.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>        <span class="hljs-type">pid_t</span> pid;<br>        <span class="hljs-type">int</span> a = <span class="hljs-number">0</span>;<br><br>        pid = vfork();<br><br>        <span class="hljs-keyword">if</span>(pid &gt; <span class="hljs-number">0</span>)<br>        &#123;<br>                <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)<br>                &#123;<br>                        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;this is father print pid:%d a:%d\n&quot;</span>,getpid(),a);<br>                        sleep(<span class="hljs-number">1</span>);<br>                &#125;<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>        &#123;<br>                <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)<br>                &#123;<br>                        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;this is child print pid:%d a:%d\n&quot;</span>,getpid(),a++);<br>                        sleep(<span class="hljs-number">1</span>);<br>                        <span class="hljs-keyword">if</span>(a == <span class="hljs-number">3</span>)<br>                                <span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);<br>                &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/vfork.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -306,7 +311,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/test/" class="category-chain-item">test</a>
+  <a href="/categories/linux/" class="category-chain-item">linux</a>
   
   
 
@@ -333,8 +338,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>template</div>
-      <div>http://lunarcompiler.github.io/2024/11/19/template/</div>
+      <div>linux进程创建</div>
+      <div>http://lunarcompiler.github.io/2024/11/19/5.linux进程编程实战/</div>
     </div>
     <div class="license-meta">
       
@@ -378,9 +383,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/11/19/linux%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" title="linux进程创建">
+                      <a href="/2024/11/19/3.%E5%AE%9E%E7%8E%B0linux_cp%E5%91%BD%E4%BB%A4/" title="实现linux cp命令">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">linux进程创建</span>
+                        <span class="hidden-mobile">实现linux cp命令</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
